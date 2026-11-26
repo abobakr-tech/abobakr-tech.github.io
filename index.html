@@ -205,11 +205,21 @@
     }
 
     .verified-badge {
-      width: 20px;
-      height: 20px;
-      color: var(--accent-cyan);
+      width: 23px;
+      height: 23px;
       flex-shrink: 0;
-      filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.35));
+      margin-top: 2px;
+      overflow: visible;
+      animation: badgeGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes badgeGlow {
+      0%, 100% {
+        filter: drop-shadow(0 0 6px rgba(34, 211, 238, 0.45));
+      }
+      50% {
+        filter: drop-shadow(0 0 13px rgba(56, 189, 248, 0.85));
+      }
     }
 
     .handle-pill {
@@ -695,8 +705,19 @@
 
       <div class="name-row">
         <h1 class="display-name">أبو بكر هاني</h1>
-        <svg class="verified-badge" viewBox="0 0 24 24" fill="currentColor" aria-label="حساب رسمي">
-          <path d="M12 2l2.39 2.09 3.16-.36.93 3.04 2.75 1.59-.66 3.11 1.65 2.71-2.09 2.39.36 3.16-3.04.93-1.59 2.75-3.11-.66-2.71 1.65-2.39-2.09-3.16.36-.93-3.04-2.75-1.59.66-3.11-1.65-2.71 2.09-2.39-.36-3.16 3.04-.93L8.13 2.7l3.11.66L12 2zm-1.1 13.4l5.2-5.2-1.41-1.42-3.79 3.8-1.88-1.88-1.42 1.41 3.3 3.29z"/>
+        <svg class="verified-badge" viewBox="0 0 24 24" aria-label="حساب رسمي" role="img">
+          <defs>
+            <linearGradient id="verifiedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" />
+              <stop offset="55%" stop-color="#0ea5e9" />
+              <stop offset="100%" stop-color="#22d3ee" />
+            </linearGradient>
+          </defs>
+          <g>
+            <path d="M 20.55 12.00 C 23.41 14.36, 21.74 18.40, 18.05 18.05 C 18.40 21.74, 14.36 23.41, 12.00 20.55 C 9.64 23.41, 5.60 21.74, 5.95 18.05 C 2.26 18.40, 0.59 14.36, 3.45 12.00 C 0.59 9.64, 2.26 5.60, 5.95 5.95 C 5.60 2.26, 9.64 0.59, 12.00 3.45 C 14.36 0.59, 18.40 2.26, 18.05 5.95 C 21.74 5.60, 23.41 9.64, 20.55 12.00 Z" fill="url(#verifiedGrad)" />
+            <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="9s" repeatCount="indefinite" />
+          </g>
+          <path d="M 8.2 12.25 L 10.75 14.8 L 15.9 9.5" fill="none" stroke="#ffffff" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </div>
 
